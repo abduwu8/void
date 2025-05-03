@@ -1,4 +1,4 @@
-import React from 'react'
+
 import ScrollReveal from '../components/ScrollReveal'
 import Navbar from '../components/Navbar'
 

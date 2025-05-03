@@ -1,4 +1,4 @@
-import React from 'react'
+
 import Navbar from '../components/Navbar'
 import ShinyText from '../components/ShinyText'
 import AbstractShapes from '../components/AbstractShapes'

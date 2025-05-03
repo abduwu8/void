@@ -26,7 +26,6 @@ const CodeAssistant: React.FC<CodeAssistantProps> = ({
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
   const [mode, setMode] = useState<AssistantMode>('suggest');
-  const [history, setHistory] = useState<{role: string, content: string}[]>([]);
   const [autoAnalyze, setAutoAnalyze] = useState<boolean>(true);
   const [debugInfo, setDebugInfo] = useState<string>('');
   
@@ -139,13 +138,6 @@ const CodeAssistant: React.FC<CodeAssistantProps> = ({
         setDebugInfo(prev => prev + "\nEmpty response received");
       } else {
         setSuggestion(result);
-        
-        // Add to conversation history
-        setHistory(prev => [
-          ...prev, 
-          { role: 'user', content: code },
-          { role: 'assistant', content: result }
-        ].slice(-6)); // Keep last 6 messages (3 exchanges)
       }
       
     } catch (err) {

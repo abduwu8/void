@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
     <footer className="py-8">
-      <div className="container mx-auto flex justify-center items-center">
+      <div className="container mx-auto flex flex-col justify-center items-center">
         <div className="flex space-x-10">
           {/* GitHub Icon */}
           <a 
@@ -43,6 +43,7 @@ const Footer = () => {
             </svg>
           </a>
         </div>
+        <p className="text-xs text-[#0d3528]/70 mt-4 project-blackbird-font">best viewed on desktop.</p>
       </div>
     </footer>
   );

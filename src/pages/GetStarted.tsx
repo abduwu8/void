@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react'
 import Navbar from '../components/Navbar'
 import StatusBar from '../components/StatusBar'
 import SaveCodeButton from '../components/SaveCodeButton'
+import VisualizeButton from '../components/VisualizeButton'
 import CodeMirror from '@uiw/react-codemirror'
 import { javascript } from '@codemirror/lang-javascript'
 import { html } from '@codemirror/lang-html'
@@ -353,7 +354,7 @@ class Program {
             </h1>
             
             <p className="text-[#0d3528] project-blackbird-font text-xl mb-3 max-w-3xl">
-              try void IDE right in your browser. write and execute code instantly.
+              try void IDE right in your browser. write and execute code instantly with notes and code visualization.
             </p>
             
             <div className="flex flex-wrap gap-3 mb-8">
@@ -368,6 +369,14 @@ class Program {
               <span className="inline-flex items-center px-3 py-1 rounded-full bg-[#0d3528]/10 text-[#0d3528] text-sm project-blackbird-font">
                 <span className="w-2 h-2 rounded-full bg-yellow-600 mr-2"></span>
                 Python
+              </span>
+              <span className="inline-flex items-center px-3 py-1 rounded-full bg-[#0d3528]/10 text-[#0d3528] text-sm project-blackbird-font">
+                <span className="w-2 h-2 rounded-full bg-purple-600 mr-2"></span>
+                Notes
+              </span>
+              <span className="inline-flex items-center px-3 py-1 rounded-full bg-[#0d3528]/10 text-[#0d3528] text-sm project-blackbird-font">
+                <span className="w-2 h-2 rounded-full bg-indigo-600 mr-2"></span>
+                Code Visualization
               </span>
             </div>
             
@@ -403,7 +412,7 @@ class Program {
               
               <div className="flex items-center gap-3">
                 <select 
-                  className="bg-[#1e3e35] text-white text-sm rounded px-2 py-1 project-blackbird-font border border-[#0d3528] focus:outline-none focus:ring-1 focus:ring-green-500"
+                  className="bg-[#1e3e35] hover:bg-[#2a4f45] text-white text-sm rounded-md px-3 py-1.5 project-blackbird-font border border-[#0d3528]/50 focus:outline-none focus:ring-2 focus:ring-green-500/30 transition-colors"
                   value={language}
                   onChange={(e) => setLanguage(e.target.value)}
                   aria-label="Select programming language"
@@ -414,7 +423,7 @@ class Program {
                 </select>
                 
                 <select 
-                  className="bg-[#1e3e35] text-white text-sm rounded px-2 py-1 project-blackbird-font border border-[#0d3528] focus:outline-none focus:ring-1 focus:ring-green-500"
+                  className="bg-[#1e3e35] hover:bg-[#2a4f45] text-white text-sm rounded-md px-3 py-1.5 project-blackbird-font border border-[#0d3528]/50 focus:outline-none focus:ring-2 focus:ring-green-500/30 transition-colors"
                   value={theme}
                   onChange={(e) => setTheme(e.target.value)}
                   aria-label="Select theme"
@@ -423,15 +432,15 @@ class Program {
                   <option value="light">Light</option>
                 </select>
                 
+                <VisualizeButton code={code} language={language} />
+                
                 <button 
-                  className={`bg-[#1e3e35] hover:bg-[#2a4f45] text-white px-3 py-1 rounded text-sm project-blackbird-font transition-colors flex items-center border border-transparent ${
-                    showAssistant ? 'bg-[#2a4f45] border-green-500/30' : ''
-                  }`}
+                  className="bg-[#1e3e35] hover:bg-[#2a4f45] text-white px-3 py-1.5 rounded-md text-sm project-blackbird-font transition-colors flex items-center border border-[#0d3528]/50 space-x-1.5 focus:outline-none focus:ring-2 focus:ring-green-500/30"
                   onClick={() => setShowAssistant(!showAssistant)}
                   title="Toggle AI Assistant"
                   aria-label="Toggle AI Assistant"
                 >
-                  <span className="mr-1">AI</span>
+                  <span>AI</span>
                   <span className={`inline-block w-2 h-2 rounded-full ${showAssistant ? 'bg-green-400' : 'bg-gray-400'}`}></span>
                 </button>
                 
@@ -442,10 +451,9 @@ class Program {
                     isExecuting 
                       ? 'bg-gray-600 cursor-wait' 
                       : 'bg-green-600 hover:bg-green-700 cursor-pointer'
-                  } text-white px-4 py-1 rounded text-sm project-blackbird-font transition-colors focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-green-500`}
+                  } text-white px-4 py-1.5 rounded-md text-sm project-blackbird-font transition-colors focus:outline-none focus:ring-2 focus:ring-green-500/30 font-medium`}
                   onClick={executeCode}
                   disabled={isExecuting}
-                  aria-label={isExecuting ? "Running code" : "Run code"}
                 >
                   {isExecuting ? 'Running...' : 'Run'}
                 </button>

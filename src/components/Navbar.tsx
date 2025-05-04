@@ -92,6 +92,13 @@ const Navbar = () => {
               >
                 about
               </a>
+              <a 
+                href="#faq" 
+                onClick={(e) => scrollToSection(e, 'faq')}
+                className="text-[#0d3528]/70 hover:text-[#0d3528] text-sm font-medium transition-colors project-blackbird-font"
+              >
+                what's this?
+              </a>
               {/* <a 
                 href="#" 
                 className="text-[#0d3528]/70 hover:text-[#0d3528] text-sm font-medium transition-colors project-blackbird-font"

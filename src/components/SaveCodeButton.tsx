@@ -89,7 +89,7 @@ const SaveCodeButton: React.FC<SaveCodeButtonProps> = ({ code, language }) => {
   return (
     <div className="relative">
       <button 
-        className="bg-[#1e3e35] hover:bg-[#2a4f45] text-white px-3 py-1 rounded text-sm project-blackbird-font transition-colors"
+        className="bg-[#1e3e35] hover:bg-[#2a4f45] text-white px-3 py-1.5 rounded-md text-sm project-blackbird-font transition-colors border border-[#0d3528]/50 focus:outline-none focus:ring-2 focus:ring-green-500/30"
         onClick={() => setShowDropdown(!showDropdown)}
       >
         Save As

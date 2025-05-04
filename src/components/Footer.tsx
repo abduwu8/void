@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer className="py-8">
+    <footer className="py-8 relative z-10" style={{ backgroundColor: 'transparent' }}>
       <div className="container mx-auto flex flex-col justify-center items-center">
         <div className="flex space-x-10">
           {/* GitHub Icon */}

@@ -1,6 +1,6 @@
 // This is where you should set your Groq API key
 // Replace the placeholder with your actual API key
-export const GROQ_API_KEY = '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';
+export const GROQ_API_KEY = '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';
 
 // Groq API endpoint
 export const GROQ_API_URL = 'https://api.groq.com/openai/v1/chat/completions';
